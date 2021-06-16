@@ -18,28 +18,13 @@ import java.awt.Dimension;
 
 public class V_StudentDash extends JFrame {
 
-	private JFrame frame;
+	JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					V_StudentDash frames = new V_StudentDash();
-					frames.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public V_StudentDash() {
+		initialize();
+	}
+	
+	public void initialize() {
 		Dimension ss = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = new Dimension (995, 595);
 		

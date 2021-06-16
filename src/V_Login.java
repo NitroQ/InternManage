@@ -8,45 +8,44 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 import javax.swing.UIManager;
 
 import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class V_Login {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField emailTextfield;
-	private JTextField passwordTextfield;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					V_Login window = new V_Login();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private JButton loginbtn, btnNewButton;
+	private JPasswordField passwordTextfield;
 	/**
 	 * Create the application.
 	 */
 	public V_Login() {
 		initialize();
 	}
-
+	public void Exception(Object ex) {
+		JOptionPane.showMessageDialog(null, ex );
+	}
+	void InvalidInput() {
+		JOptionPane.showMessageDialog(null,"One or More Fields are empty");
+	}
+	void InvalidRep() {
+		JOptionPane.showMessageDialog(null,"Incorrect Email/Password");
+	}
+	
+	/**
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -99,14 +98,14 @@ public class V_Login {
 		frame.getContentPane().add(emailTextfield);
 		emailTextfield.setColumns(10);
 		
-		passwordTextfield = new JTextField();
+		passwordTextfield = new JPasswordField();
 		passwordTextfield.setBorder(null);
 		passwordTextfield.setBackground(new Color(216, 216, 216));
 		passwordTextfield.setColumns(10);
 		passwordTextfield.setBounds(582, 364, 329, 34);
 		frame.getContentPane().add(passwordTextfield);
 		
-		JButton loginbtn = new JButton("Login");
+		loginbtn = new JButton("Login");
 		loginbtn.setFont(new Font("Montserrat Black", Font.PLAIN, 14));
 		loginbtn.setForeground(Color.WHITE);
 		loginbtn.setBorder(null);
@@ -125,7 +124,7 @@ public class V_Login {
 		lblNewLabel_2.setBounds(774, 409, 142, 34);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("<HTML><U>Sign Up</U></HTML>");
+		btnNewButton = new JButton("<HTML><U>Sign Up</U></HTML>");
 		btnNewButton.setForeground(new Color(53, 64, 142));
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEADING);
 		btnNewButton.setContentAreaFilled(false);
@@ -141,5 +140,19 @@ public class V_Login {
 		frame.getContentPane().add(lblNewLabel);
 		
 		
+	}
+	public String getPass(){
+		String pass = String.valueOf(passwordTextfield.getPassword());
+		return pass;		
+	}
+	public String getEmail() {
+		String mail = emailTextfield.getText();
+		return mail;
+	}
+	void LoginListener(ActionListener loginaction) {
+		loginbtn.addActionListener(loginaction);
+	}
+	void Signupredirect(MouseAdapter signUpDirect) {
+		btnNewButton.addMouseListener(signUpDirect);
 	}
 }

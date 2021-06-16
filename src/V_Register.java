@@ -8,54 +8,53 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 
 public class V_Register {
 	
 
-	private JFrame frame;
+	 JFrame frame;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JLabel lblNewLabel_3, lblNewLabel_3_1,  lblNewLabel_3_2,  lblNewLabel_4, lblNewLabel_2,lblNewLabel_5, lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_2_1;
-	private JRadioButton RadStudent, RadTeacher;
-	private JCheckBox chckbxNewCheckBox;
-	private JButton btnNewButton;
+	private JTextField textField, textField_1,textField_2,textField_3,textField_4,textField_7;	
+	private JLabel lblNewLabel_9, lblNewLabel_3, lblNewLabel_3_1,  lblNewLabel_3_2,  lblNewLabel_4, lblNewLabel_2,lblNewLabel_5, lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_2_1;
+	private JPasswordField textField_5,textField_6;
+	public JRadioButton RadStudent, RadTeacher;
+	public JCheckBox chckbxNewCheckBox;
+	public JButton btnNewButton, btnNewButton_1;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					V_Register window = new V_Register();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
 	public V_Register() {
 		initialize();
 	}
-
+	
+	public void Exception(Object ex) {
+		JOptionPane.showMessageDialog(null, ex );
+	}
+	void MustAgree() {
+		JOptionPane.showMessageDialog(null,"You Must Agree!");
+	}
+	void InvalidInput() {
+		JOptionPane.showMessageDialog(null,"One or More Fields are empty");
+	}
+	void InvalidRep() {
+		JOptionPane.showMessageDialog(null,"Incorrect Password/Repeat Password");
+	}
+	void RegisterSuccess() {
+		JOptionPane.showMessageDialog(null,"Registered!");
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -131,7 +130,7 @@ public class V_Register {
 		RadTeacher.setBounds(320, 109, 109, 23);
 		frame.getContentPane().add(RadTeacher);
 		
-		lblNewLabel_3 = new JLabel("FULL NAME");
+		lblNewLabel_3 = new JLabel("FIRST NAME");
 		lblNewLabel_3.setFont(new Font("Montserrat", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(70, 188, 120, 25);
 		frame.getContentPane().add(lblNewLabel_3);
@@ -139,20 +138,32 @@ public class V_Register {
 		textField = new JTextField();
 		textField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		textField.setBackground(Color.LIGHT_GRAY);
-		textField.setBounds(70, 213, 329, 29);
+		textField.setBounds(70, 213, 234, 29);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		lblNewLabel_9 = new JLabel("SURNAME");
+		lblNewLabel_9.setFont(new Font("Montserrat", Font.BOLD, 15));
+		lblNewLabel_9.setBounds(320, 188, 120, 25);
+		frame.getContentPane().add(lblNewLabel_9);
+		
+		textField_7 = new JTextField();
+		textField_7.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		textField_7.setBackground(Color.LIGHT_GRAY);
+		textField_7.setBounds(320, 213, 239, 29);
+		frame.getContentPane().add(textField_7);
+		textField_7.setColumns(10);
+		
 		lblNewLabel_3_1 = new JLabel("COURSE");
 		lblNewLabel_3_1.setFont(new Font("Montserrat", Font.BOLD, 15));
-		lblNewLabel_3_1.setBounds(436, 188, 120, 25);
+		lblNewLabel_3_1.setBounds(575, 188, 120, 25);
 		frame.getContentPane().add(lblNewLabel_3_1);
 		
 		textField_1 = new JTextField();
 		textField_1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		textField_1.setColumns(10);
 		textField_1.setBackground(Color.LIGHT_GRAY);
-		textField_1.setBounds(436, 213, 406, 29);
+		textField_1.setBounds(575, 213, 239, 29);
 		frame.getContentPane().add(textField_1);
 		
 	
@@ -170,13 +181,13 @@ public class V_Register {
 		
 		lblNewLabel_4 = new JLabel("STUDENT ID");
 		lblNewLabel_4.setFont(new Font("Montserrat", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(331, 253, 110, 25);
+		lblNewLabel_4.setBounds(320, 253, 110, 25);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		textField_3 = new JTextField();
 		textField_3.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		textField_3.setBackground(Color.LIGHT_GRAY);
-		textField_3.setBounds(331, 278, 234, 29);
+		textField_3.setBounds(320, 278, 239, 29);
 		frame.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -198,7 +209,7 @@ public class V_Register {
 		lblNewLabel_6.setBounds(342, 361, 110, 25);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		textField_5 = new JTextField();
+		textField_5 = new JPasswordField();
 		textField_5.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		textField_5.setBackground(Color.LIGHT_GRAY);
 		textField_5.setBounds(342, 385, 239, 29);
@@ -210,7 +221,7 @@ public class V_Register {
 		lblNewLabel_7.setBounds(591, 361, 210, 25);
 		frame.getContentPane().add(lblNewLabel_7);
 		
-		textField_6 = new JTextField();
+		textField_6 = new JPasswordField();
 		textField_6.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		textField_6.setBackground(Color.LIGHT_GRAY);
 		textField_6.setBounds(591, 385, 239, 29);
@@ -256,14 +267,14 @@ public class V_Register {
 		btnNewButton.setBounds(70, 475, 110, 43);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton = new JButton("<HTML><U>Log In</U></HTML>");
-		btnNewButton.setForeground(new Color(53, 64, 142));
-		btnNewButton.setHorizontalAlignment(SwingConstants.LEADING);
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setBorder(null);
-		btnNewButton.setFont(new Font("Montserrat Black", Font.PLAIN, 16));
-		btnNewButton.setBounds(843, 489, 111, 29);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton_1 = new JButton("<HTML><U>Log In</U></HTML>");
+		btnNewButton_1.setForeground(new Color(53, 64, 142));
+		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEADING);
+		btnNewButton_1.setContentAreaFilled(false);
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setFont(new Font("Montserrat Black", Font.PLAIN, 16));
+		btnNewButton_1.setBounds(843, 489, 111, 29);
+		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel_7 = new JLabel("Already have an account?");
 		lblNewLabel_7.setFont(new Font("Montserrat", Font.ITALIC, 14));
@@ -276,8 +287,25 @@ public class V_Register {
         Background.setBounds(0, 0, 987, 565);
 		frame.getContentPane().add(Background);
 		
-		
 	}
 	
+	public ArrayList<String> getInfo(){
+		ArrayList<String> data = new ArrayList<String>();
+		data.add(textField.getText());
+		data.add(textField_7.getText());
+		data.add(textField_1.getText());
+		data.add(textField_2.getText());
+		data.add(textField_3.getText());
+		data.add(textField_4.getText());
+		data.add(String.valueOf(textField_5.getPassword()));
+		data.add(String.valueOf(textField_6.getPassword()));
+		return data;
+	}
+	void SignUpListener(ActionListener signupaction) {
+		btnNewButton.addActionListener(signupaction);
+	}
+	void Loginredirect(MouseAdapter LoginDirect) {
+		btnNewButton_1.addMouseListener(LoginDirect);
+	}
 	
 }

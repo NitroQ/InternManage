@@ -23,27 +23,12 @@ import java.awt.event.ActionEvent;
 
 public class V_TeacherDash {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTable table_1;
 	private  String[] columns = {"Student Name", "Course", "Student ID"};
 	 private Object[][] data = {};
 	  private DefaultTableModel model = new DefaultTableModel(data, columns);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					V_TeacherDash window = new V_TeacherDash();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
