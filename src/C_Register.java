@@ -32,20 +32,19 @@ public class C_Register {
 		C_Login cr = new C_Login(vr, mr);
 		frames.frame.dispose();
 	}
-	
-	public void SignUpStudent() {
+	public void fetchData(String Fname, String Sname, String CouDept, String Sect, String StudID, String Email, String Pass, String Type) {
 		try{
 			String query = "INSERT INTO `logincredentials`(`First`, `Surname`, `Course/Department`, `Section`, `Stud_ID`, `Email`, `Password`, `Type`) VALUES (?,?,?,?,?,?,?,?)";
 		    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
 		    ps = con.prepareStatement(query);
              String type = "Student";
-             ps.setString(1, data.getFname());
-             ps.setString(2, data.getSname());
-             ps.setString(3, data.getCouDept());
-             ps.setString(4, data.getSect());
-             ps.setString(5, data.getStudID());
-             ps.setString(6, data.getEmail());
-             ps.setString(7, data.getPass());
+             ps.setString(1, Fname);
+             ps.setString(2, Sname);
+             ps.setString(3, CouDept);
+             ps.setString(4, Sect);
+             ps.setString(5, StudID);
+             ps.setString(6, Email);
+             ps.setString(7, Pass);
              ps.setString(8, type);
    
                 ps.executeUpdate();
@@ -54,26 +53,16 @@ public class C_Register {
              frames.Exception(ex);
          }
 	}
+	public void SignUpStudent() {
+		
+           String type = "Student";
+           fetchData(data.getFname(), data.getSname(), data.getCouDept(), data.getSect(), data.getStudID(), data.getEmail(), data.getPass(), type );
+       
+	}
 	public void SignUpTeacher() {
-		try{
-			String query = "INSERT INTO `logincredentials`(`First`, `Surname`, `Course/Department`, `Section`, `Stud_ID`, `Email`, `Password`, `Type`) VALUES (?,?,?,?,?,?,?,?)";
-		    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
-		    ps = con.prepareStatement(query);
-             String type = "Teacher";
-             ps.setString(1, data.getFname());
-             ps.setString(2, data.getSname());
-             ps.setString(3, data.getCouDept());
-             ps.setString(4, "");
-             ps.setString(5, "");
-             ps.setString(6, data.getEmail());
-             ps.setString(7, data.getPass());
-             ps.setString(8, type);
-   
-                ps.executeUpdate();
-                
-    	 }catch(HeadlessException | SQLException ex){
-             frames.Exception(ex);
-         }
+		  String type = "Teacher";
+          fetchData(data.getFname(), data.getSname(), data.getCouDept(), "", "", data.getEmail(), data.getPass(), type );
+          
 	}
 	class SignUpListener implements ActionListener{
 
