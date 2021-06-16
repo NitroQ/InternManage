@@ -27,8 +27,8 @@ public class StudentDash extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StudentDash frame = new StudentDash();
-					frame.setVisible(true);
+					StudentDash frames = new StudentDash();
+					frames.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
