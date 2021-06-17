@@ -57,7 +57,6 @@ public class C_Register {
 		
            String type = "Student";
            fetchData(data.getFname(), data.getSname(), data.getCouDept(), data.getSect(), data.getStudID(), data.getEmail(), data.getPass(), type );
-       
 	}
 	public void SignUpTeacher() {
 		  String type = "Teacher";
