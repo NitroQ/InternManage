@@ -1,14 +1,14 @@
 
 public class M_StudentDash {
 	String Name, StudID;
-	int hours= 0;
+	int hours;
 	public M_StudentDash(String Name, String StudID) {
 		this.Name = Name;
 		this.StudID = StudID;
 		
 	}
-	public void setHour(String hour) {
-		hours += Integer.parseInt(hour);
+	public void setHour(int hour) {
+		this.hours = hour;
 	}
 	public String getName() {
 		return Name;

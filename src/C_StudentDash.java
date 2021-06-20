@@ -5,6 +5,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 
 public class C_StudentDash {
 
@@ -61,13 +63,16 @@ public class C_StudentDash {
 	           ps.setString(1, msd.getStudID());
 	           rs = ps.executeQuery();
 	            while(rs.next()){
-	             msd.setHour(rs.getString("Total"));
-	            }
-	           vsd.setHours(msd.getHours());
- 
+	            		try {
+	            			msd.setHour(Integer.parseInt(rs.getString("Total").trim()));
+	            		}catch(NumberFormatException ex) {}
+	            	}
 	        } catch (Exception ex) {
 	            vsd.Exception(ex);
 	         }
+		 if(msd.getHours() != null || !msd.getHours().equals("")) {
+         	vsd.setHours(msd.getHours());
+     	}
 	}
 	
 }
