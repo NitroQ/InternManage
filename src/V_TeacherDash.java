@@ -17,6 +17,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.ListSelectionModel;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class V_TeacherDash {
 
@@ -73,7 +75,20 @@ public class V_TeacherDash {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.setBounds (ss.width / 2 - frameSize.width / 2, ss.height/2 - frameSize.height/2, 995, 595);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null, 
+			        "Are you sure you want to exit the program?", "Exit Program Message Box",
+			        JOptionPane.YES_NO_OPTION);
+
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			      frame.dispose();
+			    }
+			    else {
+			    	frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			    }
+			  }
+			});
 		Image icon = new ImageIcon(this.getClass().getResource("/NU.png")).getImage();
 		frame.setIconImage(icon);
 		
