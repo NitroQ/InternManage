@@ -29,6 +29,7 @@ public class V_Login {
 	private JTextField emailTextfield;
 	private JButton loginbtn, btnNewButton;
 	private JPasswordField passwordTextfield;
+	private JLabel lblNewLabel_2;
 	/**
 	 * Create the application.
 	 */
@@ -44,7 +45,9 @@ public class V_Login {
 	void InvalidRep() {
 		JOptionPane.showMessageDialog(null,"Incorrect Email/Password");
 	}
-	
+	void ForgotPass(MouseAdapter forgot) {
+		lblNewLabel_2.addMouseListener(forgot);
+	}
 	/**
 	/**
 	 * Initialize the contents of the frame.
@@ -118,7 +121,7 @@ public class V_Login {
 		lblNewLabel_1.setBounds(582, 485, 174, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("<HTML><U>Forgot Password?</U><HTML>");
+		lblNewLabel_2 = new JLabel("<HTML><U>Forgot Password?</U><HTML>");
 		lblNewLabel_2.setForeground(new Color(53,79,142));
 		lblNewLabel_2.setFont(new Font("Montserrat ExtraBold", Font.ITALIC, 14));
 		lblNewLabel_2.setBounds(774, 409, 142, 34);
@@ -155,4 +158,32 @@ public class V_Login {
 	void Signupredirect(MouseAdapter signUpDirect) {
 		btnNewButton.addMouseListener(signUpDirect);
 	}
+	void forgotnotMatch() {
+		JOptionPane.showMessageDialog(null, "Password Did Not Match, Try Again", "Failed", 2);
+	}
+	void forgotnotFound() {
+		JOptionPane.showMessageDialog(null, "You are not yet signed up in this email.","User not Found",2);
+	}
+	void forgotChanged() {
+		JOptionPane.showMessageDialog(null, "Password Changed!");
+	}
+	public String forgotEmail() {
+		String mail = JOptionPane.showInputDialog("Input Account Email: ");
+		return mail;
+	}
+	public String forgotCode() {
+		String code = JOptionPane.showInputDialog("Email Sent, Input Code: ");
+		return code;
+	}
+	public String forgotNewPass() {
+		String pass = JOptionPane.showInputDialog("New Password: ");
+		return pass;
+	}
+	public String forgotRepPass() {
+		String rep = JOptionPane.showInputDialog("Repeat Password: ");
+		return rep;
+	}
+	
+	
+	
 }

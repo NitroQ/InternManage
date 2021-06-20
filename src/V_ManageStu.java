@@ -5,11 +5,13 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
@@ -18,39 +20,57 @@ import javax.swing.table.DefaultTableModel;
 
 public class V_ManageStu {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTable table;
 	private JScrollPane scrollTable;
+	private JButton backbtn, btnNewButton , btnNewButton_1;
+	private JLabel lblNewLabel_3, lblNewLabel_2;
 	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof", "Validate"};
-	 private Object[][] data = {
-			 	{null, null, null, null, null, null},
-	    		{null, null, null, null, null, null},
-	    		{null, null, null, null, null, null}};
+	 private Object[][] data = {};
 	  private DefaultTableModel model = new DefaultTableModel(data, columns);
     
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					V_ManageStu window = new V_ManageStu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public V_ManageStu() {
 		initialize();
+		frame.setVisible(true);
 	}
 
+	void addObject(Object[] lah) {
+		 model.addRow(lah);
+	}
+	public void Exception(Object ex) {
+		JOptionPane.showMessageDialog(null, ex );
+	}
+	 void refreshPane() {
+		 JOptionPane.showMessageDialog(null, "Up-to-Date");
+		}
+	void backbutton(ActionListener back) {
+		backbtn.addActionListener(back);
+	}
+	void refreshbutton(ActionListener ref) {
+		btnNewButton_1.addActionListener(ref);
+	}
+	void validatebutton(ActionListener val) {
+		btnNewButton.addActionListener(val);
+	}
+	void setNameStu(String StudID, String Name) {
+		lblNewLabel_3.setText(StudID);
+		lblNewLabel_2.setText(Name);
+	}
+	public String getDate() {
+		int row = table.getSelectedRow();
+		String date = model.getValueAt(row, 0).toString();
+		return date;
+	}
+	void resetTable() {
+		model.setRowCount(0);
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -75,16 +95,18 @@ public class V_ManageStu {
 		scrollTable.setBounds(75, 189, 852, 343);
 		frame.getContentPane().add(scrollTable);
 		
-		JLabel lblNewLabel_2 = new JLabel("Gesmundo, Frank Vincent T.");
+		lblNewLabel_2 = new JLabel("Gesmundo, Frank Vincent");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2.setFont(new Font("Montserrat Black", Font.ITALIC, 21));
 		lblNewLabel_2.setForeground(new Color(53, 64, 142));
-		lblNewLabel_2.setBounds(597, 106, 439, 57);
+		lblNewLabel_2.setBounds(559, 70, 368, 57);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("2020-103235");
+		lblNewLabel_3 = new JLabel("2020-103235");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_3.setFont(new Font("Montserrat Black", Font.ITALIC, 21));
 		lblNewLabel_3.setForeground(new Color(53, 64, 142));
-		lblNewLabel_3.setBounds(777, 136, 287, 57);
+		lblNewLabel_3.setBounds(727, 100, 200, 57);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel = new JLabel("Manage Student");
@@ -97,13 +119,29 @@ public class V_ManageStu {
 		lblNewLabel_1.setBounds(73, 134, 287, 57);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JButton backbtn = new JButton("BACK");
+		backbtn = new JButton("BACK");
 		backbtn.setHorizontalAlignment(SwingConstants.LEADING);
 		backbtn.setFont(new Font("Montserrat", Font.PLAIN, 16));
 		backbtn.setContentAreaFilled(false);
 		backbtn.setBorder(null);
 		backbtn.setBounds(901, 24, 57, 23);
 		frame.getContentPane().add(backbtn);
+		
+		btnNewButton = new JButton("Validate");
+		btnNewButton.setBackground(new Color(53, 64, 142));
+	    btnNewButton.setForeground(new Color(240,240,240));
+		btnNewButton.setBorder(null);
+		btnNewButton.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton.setBounds(838, 154, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Refresh");
+		btnNewButton_1.setBackground(new Color(53, 64, 142));
+	    btnNewButton_1.setForeground(new Color(240,240,240));
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_1.setBounds(739, 154, 89, 23);
+		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel backbtnvector = new JLabel("");
 		backbtnvector.setBounds(885, 28, 11, 14);
@@ -116,6 +154,8 @@ public class V_ManageStu {
         Background.setIcon(new ImageIcon(img));
         Background.setBounds(0, 0, 989, 566);
 		frame.getContentPane().add(Background);
+		
+		
 		
 	
 		

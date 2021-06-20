@@ -4,6 +4,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.HeadlessException;
 import java.sql.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class C_Register {
 	V_Register frames;
@@ -78,12 +80,13 @@ public class C_Register {
 					data.getEmail().equals("")|| data.getEmail().equals(null) &&
 					data.getPass().equals("")|| data.getPass().equals(null) &&
 					data.getRepPass().equals("")|| data.getRepPass().equals(null)) {
-					
 					frames.InvalidInput();
 				}else if(!data.getPass().equals(data.getRepPass())){
 					frames.InvalidRep();
 				}else if(!frames.chckbxNewCheckBox.isSelected()) {
 					frames.MustAgree();
+				}else if(validateEmail()) {
+					frames.InvalidEmail();
 				}else {
 					SignUpStudent();
 					frames.RegisterSuccess();
@@ -103,6 +106,8 @@ public class C_Register {
 						frames.InvalidRep();
 					}else if(!frames.chckbxNewCheckBox.isSelected()) {
 						frames.MustAgree();
+					}else if(validateEmail()) {
+						frames.InvalidEmail();
 					}else {
 						SignUpTeacher();
 						frames.RegisterSuccess();
@@ -111,6 +116,16 @@ public class C_Register {
 				
 			}
 			
+		}
+		public boolean validateEmail() {
+			String email = "^[^@\\s]+@[^@\\s\\.]+\\.[^@\\.\\s]+$";
+			Pattern pattern = Pattern.compile(email, Pattern.CASE_INSENSITIVE);
+			Matcher matcher = pattern.matcher(data.getEmail());
+			if(!matcher.matches()) {
+				return true;
+			}else {
+				return false;
+			}
 		}
 	
 	

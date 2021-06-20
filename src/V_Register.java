@@ -46,6 +46,9 @@ public class V_Register {
 	void MustAgree() {
 		JOptionPane.showMessageDialog(null,"You Must Agree!");
 	}
+	void InvalidEmail() {
+		JOptionPane.showMessageDialog(null,"Wrong Email Format!");
+	}
 	void InvalidInput() {
 		JOptionPane.showMessageDialog(null,"One or More Fields are empty");
 	}
