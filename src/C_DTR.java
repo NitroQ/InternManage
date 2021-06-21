@@ -8,11 +8,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-import javax.swing.JOptionPane;
-
-
-
-
 public class C_DTR extends SQLConnect {
 	V_DTR vdt;
 	M_DTR mdt;
