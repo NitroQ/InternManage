@@ -1,32 +1,23 @@
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
 
+
+@SuppressWarnings("serial")
 public class V_DTR extends JFrame {
 
 	 JFrame frame;

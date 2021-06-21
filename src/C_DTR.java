@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-import javax.swing.JOptionPane;
+
 
 
 public class C_DTR {
@@ -51,6 +51,7 @@ public class C_DTR {
 			public void actionPerformed(ActionEvent e) {
 				V_StudentDash vs = new V_StudentDash();
 				M_StudentDash ms = new M_StudentDash(mdt.getName(), mdt.getStudID());
+				 @SuppressWarnings("unused")
 				C_StudentDash cs = new C_StudentDash(vs,ms);
 				vdt.frame.dispose();
 				

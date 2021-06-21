@@ -38,6 +38,7 @@ public class C_Login {
 			public void mouseClicked(MouseEvent e) {
 				V_Register vr = new V_Register();
 				M_Register mr = new M_Register();
+				 @SuppressWarnings("unused")
 				C_Register cr = new C_Register(vr, mr);
 				vl.frame.dispose();
 			}
@@ -187,11 +188,13 @@ public class C_Login {
 					if(ml.getType().equals("Teacher")) {
 						V_TeacherDash vtd = new V_TeacherDash();
 						M_TeacherDash mtd = new M_TeacherDash(ml.getName());
+						 @SuppressWarnings("unused")
 						C_TeacherDash ctd = new C_TeacherDash(vtd, mtd);	
 						vl.frame.dispose();
 					}else {
 						V_StudentDash vs = new V_StudentDash();
 						M_StudentDash ms = new M_StudentDash(ml.getName(), ml.getStudID());
+						 @SuppressWarnings("unused")
 						C_StudentDash cs = new C_StudentDash(vs,ms);
 						vl.frame.dispose();
 					}

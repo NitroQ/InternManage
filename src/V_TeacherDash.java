@@ -28,7 +28,8 @@ public class V_TeacherDash {
 	private JButton refreshbtn, logoutbtn;
 	private  String[] columns = {"Student Name", "Course", "Student ID"};
 	 private Object[][] data = {};
-	  private DefaultTableModel model = new DefaultTableModel(data, columns) {
+	  @SuppressWarnings("serial")
+	private DefaultTableModel model = new DefaultTableModel(data, columns) {
 	  		@Override
 		    public boolean isCellEditable(int row, int column) {
 		        return false;

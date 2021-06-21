@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-import javax.swing.JOptionPane;
+
 
 
 public class C_StudentDash {
@@ -31,6 +31,7 @@ public class C_StudentDash {
 				vsd.frame.dispose();
 				V_DTR mv = new V_DTR();
 				M_DTR md = new M_DTR(msd.getName(),msd.getStudID());
+				 @SuppressWarnings("unused")
 				C_DTR cr = new C_DTR(mv, md);
 			}
 		});
@@ -40,7 +41,8 @@ public class C_StudentDash {
 			public void actionPerformed(ActionEvent e) {
 				V_Login vr = new V_Login();
 		        M_Login mr = new M_Login();
-		        C_Login cr = new C_Login(vr, mr);
+		        @SuppressWarnings("unused")
+				C_Login cr = new C_Login(vr, mr);
 		        vsd.frame.dispose();
 			}
 			

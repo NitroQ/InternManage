@@ -26,6 +26,7 @@ public class C_ManageStu {
 				public void actionPerformed(ActionEvent e) {
 					V_TeacherDash vtd = new V_TeacherDash();
 					M_TeacherDash mtd = new M_TeacherDash(mm.getTeach());
+					 @SuppressWarnings("unused")
 					C_TeacherDash ctd = new C_TeacherDash(vtd,mtd);	
 					mv.frame.dispose();
 					

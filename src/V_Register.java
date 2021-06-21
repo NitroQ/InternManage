@@ -1,7 +1,6 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -11,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -234,7 +232,7 @@ public class V_Register {
 		frame.getContentPane().add(textField_5);
 		textField_5.setColumns(10);
 		
-		lblNewLabel_7 = new JLabel("REPEAT PASSWORD");
+		lblNewLabel_7 = new JLabel("CONFIRM PASSWORD");
 		lblNewLabel_7.setFont(new Font("Montserrat", Font.BOLD, 15));
 		lblNewLabel_7.setBounds(622, 357, 210, 25);
 		frame.getContentPane().add(lblNewLabel_7);

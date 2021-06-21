@@ -4,7 +4,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-import javax.swing.JOptionPane;
 
 public class C_TeacherDash {
 	V_TeacherDash td;
@@ -27,6 +26,7 @@ public class C_TeacherDash {
 			public void mouseClicked(MouseEvent e) {
 				V_ManageStu vr = new V_ManageStu();
 				M_ManageStu mr = new M_ManageStu(td.getSelectedName(),td.getSelectedStudID(), md.getName());
+				 @SuppressWarnings("unused")
 				C_ManageStu cr = new C_ManageStu(vr, mr);
 				td.frame.dispose();
 			}
@@ -46,6 +46,7 @@ public class C_TeacherDash {
 			public void actionPerformed(ActionEvent e) {
 				V_Login vr = new V_Login();
 		        M_Login mr = new M_Login();
+		        @SuppressWarnings("unused")
 		        C_Login cr = new C_Login(vr, mr);
 		        td.frame.dispose();
 			}
