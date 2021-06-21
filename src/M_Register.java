@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class M_Register {
-	private String Fname, Sname, CouDept, Sect, StudID, Email, Pass, RepPass;
+	private String Fname, Sname, CouDept, Sect, StudID, Email, Pass, RepPass, checkID;
 	
 	public void getData(ArrayList<String> data) {
 		Fname = data.get(0);
@@ -12,6 +12,9 @@ public class M_Register {
 		Email= data.get(5);
 		Pass = data.get(6);
 		RepPass = data.get(6);
+	}
+	public void setcheck(String checkID) {
+		this.checkID = checkID;
 	}
 	public String getFname() {
 		return Fname;
@@ -37,5 +40,7 @@ public class M_Register {
 	public String getRepPass() {
 		return RepPass;
 	}
-	
+	public String getcheck() {
+		return checkID;
+	}
 }

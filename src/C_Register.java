@@ -13,6 +13,9 @@ public class C_Register {
 	static Connection con = null;
 	static PreparedStatement ps = null;
 	static  Statement st = null;
+	static ResultSet rs = null;
+	String connect = "jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	
 	
 	public  C_Register(V_Register frames, M_Register data) {
 		this.frames = frames;
@@ -26,16 +29,32 @@ public class C_Register {
 				openLogin();
 			}
 		});
-		
+		frames.termsandcon(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				openWebPage();
+			}
+		});
 	}
-	public void openLogin() {
+	
+	private void openLogin() {
 		V_Login vr = new V_Login();
 		M_Login mr = new M_Login();
 		 @SuppressWarnings("unused")
 		C_Login cr = new C_Login(vr, mr);
 		frames.frame.dispose();
 	}
-	public void fetchData(String Fname, String Sname, String CouDept, String Sect, String StudID, String Email, String Pass, String Type) {
+	
+	public void openWebPage(){
+		try {         
+		     java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://sites.google.com/view/internship-management/home"));
+		   }
+		   catch (java.io.IOException e) {
+		       frames.Exception(e);
+		   }
+	}
+	
+	private void fetchData(String Fname, String Sname, String CouDept, String Sect, String StudID, String Email, String Pass, String Type) {
 		try{
 			String query = "INSERT INTO `logincredentials`(`First`, `Surname`, `Course/Department`, `Section`, `Stud_ID`, `Email`, `Password`, `Type`) VALUES (?,?,?,?,?,?,?,?)";
 		    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
@@ -56,12 +75,43 @@ public class C_Register {
              frames.Exception(ex);
          }
 	}
-	public void SignUpStudent() {
-		
-           String type = "Student";
-           fetchData(data.getFname(), data.getSname(), data.getCouDept(), data.getSect(), data.getStudID(), data.getEmail(), data.getPass(), type );
+	private boolean FindID() {
+		   try {
+	        	String query1 = "SELECT * FROM `logincredentials` WHERE `Stud_ID` = ?";
+	           con = DriverManager.getConnection(connect,"root","");
+	           ps = con.prepareStatement(query1);
+	           ps.setString(1, data.getStudID());
+	           rs = ps.executeQuery();
+	            while(rs.next()){
+	             data.setcheck(rs.getString("Stud_ID"));
+	            }
+	            
+	        } catch (Exception ex) {
+	            frames.Exception(ex);
+	         }
+		   if(data.getcheck() != null) {
+			   if(data.getcheck().equals(data.getStudID())) {
+				   return true;
+			   }else {
+				   return false;
+			   }
+		   }else {
+			   return false;
+		   }
 	}
-	public void SignUpTeacher() {
+	private void SignUpStudent() {
+           String type = "Student";
+           if(FindID()) {
+        	   frames.idExists();
+           }else {
+        	   fetchData(data.getFname(), data.getSname(), data.getCouDept(), data.getSect(), data.getStudID(), data.getEmail(), data.getPass(), type );
+        		frames.RegisterSuccess();
+        		openLogin();
+           }
+           
+           
+	}
+	private void SignUpTeacher() {
 		  String type = "Teacher";
           fetchData(data.getFname(), data.getSname(), data.getCouDept(), "", "", data.getEmail(), data.getPass(), type );
           
@@ -90,8 +140,6 @@ public class C_Register {
 					frames.InvalidEmail();
 				}else {
 					SignUpStudent();
-					frames.RegisterSuccess();
-					openLogin();
 				}
 					
 			}else if(frames.RadTeacher.isSelected()) {

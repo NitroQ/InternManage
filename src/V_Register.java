@@ -39,9 +39,11 @@ public class V_Register {
 	public V_Register() {
 		initialize();
 	}
-	
 	public void Exception(Object ex) {
 		JOptionPane.showMessageDialog(null, ex );
+	}
+	void idExists() {
+		JOptionPane.showMessageDialog(null,"Invalid Student ID","ID already exists", 2);
 	}
 	void MustAgree() {
 		JOptionPane.showMessageDialog(null,"You Must Agree!");
@@ -322,6 +324,9 @@ public class V_Register {
 	}
 	void Loginredirect(MouseAdapter LoginDirect) {
 		btnNewButton_1.addMouseListener(LoginDirect);
+	}
+	void termsandcon(MouseAdapter tac) {
+		lblNewLabel_8.addMouseListener(tac);
 	}
 	
 }
