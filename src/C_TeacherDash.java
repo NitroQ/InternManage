@@ -5,13 +5,10 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 
-public class C_TeacherDash {
+public class C_TeacherDash extends SQLConnect{
 	V_TeacherDash td;
 	M_TeacherDash md;
-	static Connection con = null;
-	static PreparedStatement ps = null;
-	static ResultSet rs = null;
-	static  Statement st = null;
+	
 	
 	public C_TeacherDash(V_TeacherDash td, M_TeacherDash md) {
 		this.td =td; 
@@ -56,7 +53,7 @@ public class C_TeacherDash {
 	}
 	public void getClassList() {
 		try{
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
+				con = DriverManager.getConnection(connect,"root","");
                    st = con.createStatement();
                    String query1 = "SELECT * FROM `logincredentials`";
                    rs = st.executeQuery(query1);

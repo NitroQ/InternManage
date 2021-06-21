@@ -17,15 +17,10 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
 
-public class C_Login {
+public class C_Login extends SQLConnect{
 	V_Login vl;
 	M_Login ml;
 	
-	String connect = "jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	static Connection con = null;
-	static PreparedStatement ps = null;
-	static ResultSet rs = null;
-	static  Statement st = null;
 	
 	public C_Login(V_Login vl, M_Login ml) {
 		this.vl = vl;

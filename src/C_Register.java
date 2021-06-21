@@ -7,15 +7,9 @@ import java.sql.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class C_Register {
+public class C_Register extends SQLConnect{
 	V_Register frames;
 	M_Register data;
-	static Connection con = null;
-	static PreparedStatement ps = null;
-	static  Statement st = null;
-	static ResultSet rs = null;
-	String connect = "jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	
 	
 	public  C_Register(V_Register frames, M_Register data) {
 		this.frames = frames;

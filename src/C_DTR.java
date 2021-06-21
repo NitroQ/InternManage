@@ -8,19 +8,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
+import javax.swing.JOptionPane;
 
 
 
-public class C_DTR {
+
+public class C_DTR extends SQLConnect {
 	V_DTR vdt;
 	M_DTR mdt;
 	public DateTimeFormatter date = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 	public DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");  
-	private String connect = "jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	static Connection con = null;
-	static PreparedStatement ps = null;
-	static  Statement st = null;
-	static ResultSet rs = null;
 	
 	public C_DTR(V_DTR vdt, M_DTR mdt) {
 		this.vdt = vdt;
@@ -128,12 +125,21 @@ public class C_DTR {
 	}
 	private String calcTime() {
 		int hour = 0;
+		int min = 0;
 		 if(mdt.getTimeIn() != null) {
 	       	 	String[] timein = mdt.getTimeIn().split(":");
 	       	 	String[] timeout = getTime().split(":");
-	       	  hour += Integer.parseInt(timeout[0])-Integer.parseInt(timein[0]);
+	       	 	hour += Integer.parseInt(timeout[0])-Integer.parseInt(timein[0]);
+	       	 	int start = Integer.parseInt(timein[1]);
+	       	 	int end = Integer.parseInt(timeout[1]);
+	       	 	if(start > end){
+	             --hour;
+	             min += 60;
+	       	 	}
+	       	 	min += Math.abs(Integer.parseInt(timeout[1])-Integer.parseInt(timein[1]));
 		 }
-       	 String result = String.valueOf(hour);
+		 int total = (hour*60) + min;
+       	 String result = String.valueOf(total);
 		 return result;
 	}
 	private void checkTime() {

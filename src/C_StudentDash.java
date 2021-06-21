@@ -8,15 +8,11 @@ import java.sql.*;
 
 
 
-public class C_StudentDash {
+public class C_StudentDash extends SQLConnect{
 
 	V_StudentDash vsd;
 	M_StudentDash msd;
-	private String connect = "jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	static Connection con = null;
-	static PreparedStatement ps = null;
-	static  Statement st = null;
-	static ResultSet rs = null;
+
 	
 	public  C_StudentDash(V_StudentDash vs,M_StudentDash ms) {
 		this.vsd = vs;
@@ -51,14 +47,14 @@ public class C_StudentDash {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				msd.resetHour(0);
+				msd.resetTime(0);
 				getStudentTime();
 				vsd.refreshPane();
 			}
 			
 		});
 	}
-	public void getStudentTime() {
+	private void getStudentTime() {
 		 try {
 	        	String query1 = "SELECT * FROM `dtr` WHERE `StudID` = ?";
 	           con = DriverManager.getConnection(connect,"root","");
@@ -67,15 +63,16 @@ public class C_StudentDash {
 	           rs = ps.executeQuery();
 	            while(rs.next()){
 	            		try {
-	            			msd.setHour(Integer.parseInt(rs.getString("Total").trim()));
+	            			msd.setTime(Integer.parseInt(rs.getString("Total").trim()));
 	            		}catch(NumberFormatException ex) {}
 	            	}
 	        } catch (Exception ex) {
 	            vsd.Exception(ex);
 	         }
-		 if(msd.getHours() != null || !msd.getHours().equals("")) {
-         	vsd.setHours(msd.getHours());
-     	}
+		
+			 double min = msd.getTime()/60;
+         	vsd.setHours(String.valueOf(Math.round(min)));
+     	
 	}
 	
 }
