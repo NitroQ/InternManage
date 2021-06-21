@@ -51,6 +51,7 @@ public class C_StudentDash {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				msd.resetHour(0);
 				getStudentTime();
 				vsd.refreshPane();
 			}
