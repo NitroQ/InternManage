@@ -37,10 +37,6 @@ public class V_TeacherDash {
 		
 			};
 
-
-	/**
-	 * Create the application.
-	 */
 	public V_TeacherDash() {
 		initialize();
 		
@@ -111,63 +107,20 @@ public class V_TeacherDash {
 		refreshbtn.setForeground(new Color(53, 64, 142));
 		refreshbtn.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 16));
 		refreshbtn.setBorder(null);
-		refreshbtn.setBounds(571, 145, 110, 33);
+		refreshbtn.setBounds(813, 145, 110, 33);
 		frame.getContentPane().add(refreshbtn);
 		
 		
 		table_1 = new JTable(model);
 		table_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		table_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table_1.getColumnModel().getColumn(0).setPreferredWidth(271);
-		table_1.getColumnModel().getColumn(1).setPreferredWidth(140);
-		table_1.getColumnModel().getColumn(2).setPreferredWidth(146);
 		table_1.setRowHeight(30);
 		table_1.setRowSelectionAllowed(true);
 		table_1.setBounds(65, 194, 610, 310);
 	
 		JScrollPane scrollPane = new JScrollPane(table_1);
-		scrollPane.setBounds(65, 194, 622, 310);
+		scrollPane.setBounds(65, 194, 858, 310);
 		frame.getContentPane().add(scrollPane);
-		 
-		
-		JLabel lblmanage = new JLabel("Manage");
-		lblmanage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblmanage.setForeground(Color.WHITE);
-		lblmanage.setFont(new Font("Montserrat Black", Font.ITALIC, 34));
-		lblmanage.setBounds(728, 199, 209, 42);
-		frame.getContentPane().add(lblmanage);
-		
-		JButton refreshbtn_1 = new JButton("Delete");
-		refreshbtn_1.setForeground(new Color(53, 64, 142));
-		refreshbtn_1.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 16));
-		refreshbtn_1.setFocusPainted(false);
-		refreshbtn_1.setBorder(null);
-		refreshbtn_1.setBackground(Color.WHITE);
-		refreshbtn_1.setBounds(763, 261, 136, 53);
-		frame.getContentPane().add(refreshbtn_1);
-		
-		JButton refreshbtn_1_1 = new JButton("Edit");
-		refreshbtn_1_1.setForeground(new Color(53, 64, 142));
-		refreshbtn_1_1.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 16));
-		refreshbtn_1_1.setFocusPainted(false);
-		refreshbtn_1_1.setBorder(null);
-		refreshbtn_1_1.setBackground(Color.WHITE);
-		refreshbtn_1_1.setBounds(764, 328, 136, 53);
-		frame.getContentPane().add(refreshbtn_1_1);
-		
-//		JButton btnNewButton = new JButton("");
-//		btnNewButton.setBorder(null);
-//		btnNewButton.setBounds(705, 258, 216, 83);
-//		Image img1 = new ImageIcon(this.getClass().getResource("/STUDENT_ACCOUNTS.png")).getImage();
-//		btnNewButton.setIcon(new ImageIcon(img1));
-//		frame.getContentPane().add(btnNewButton);
-//		
-//		JButton btnNewButton_1 = new JButton("");
-//		btnNewButton_1.setBorder(null);
-//		btnNewButton_1.setBounds(705, 354, 216, 83);
-//		Image img2 = new ImageIcon(this.getClass().getResource("/ADMIN_SETTINGS.png")).getImage();
-//		btnNewButton_1.setIcon(new ImageIcon(img2));
-//		frame.getContentPane().add(btnNewButton_1);
 		
 		logoutbtn = new JButton("LOGOUT");
 		logoutbtn.setFocusPainted(false);
@@ -190,8 +143,6 @@ public class V_TeacherDash {
 		Image img = new ImageIcon(this.getClass().getResource("/Dashboard_Teacher.png")).getImage();
 		backgroundimg.setIcon(new ImageIcon(img));
 		frame.getContentPane().add(backgroundimg);
-		
-	
 		
 	
 	}

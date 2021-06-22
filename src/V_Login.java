@@ -23,9 +23,7 @@ public class V_Login {
 	private JButton loginbtn, btnNewButton;
 	private JPasswordField passwordTextfield;
 	private JLabel lblNewLabel_2;
-	/**
-	 * Create the application.
-	 */
+
 	public V_Login() {
 		initialize();
 	}
@@ -41,10 +39,7 @@ public class V_Login {
 	void ForgotPass(MouseAdapter forgot) {
 		lblNewLabel_2.addMouseListener(forgot);
 	}
-	/**
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		Dimension ss = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = new Dimension (995, 595);

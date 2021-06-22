@@ -25,13 +25,7 @@ public class V_DTR extends JFrame {
 	public JLabel Time, Date;
 	private JButton backbtn;
 	private JButton TimeInBttn, TimeOutBttn;
-	/**
-	 * Launch the application.
-	 */
 	
-	/**
-	 * Create the frame.
-	 */
 	public V_DTR() {
 		initialize();
 	}
@@ -90,23 +84,7 @@ public class V_DTR extends JFrame {
 		Image icon = new ImageIcon(this.getClass().getResource("/NU.png")).getImage();
 		frame.setIconImage(icon);
 		frame.getContentPane().setLayout(null);
-	
-//		JLabel lblPhoto = new JLabel("photo");
-//		lblPhoto.setFont(new Font("Montserrat", Font.BOLD, 14));
-//		lblPhoto.setBounds(468, 427, 57, 37);
-//		frame.getContentPane().add(lblPhoto);
-//		
-//		JLabel lblAttach = new JLabel("Attach");
-//		lblAttach.setFont(new Font("Montserrat", Font.BOLD, 14));
-//		lblAttach.setBounds(468, 414, 57, 37);
-//		frame.getContentPane().add(lblAttach);
-//		
-//		JLabel PaperClipBG = new JLabel("");
-//		Image img3 = new ImageIcon(this.getClass().getResource("/Paperclip.png")).getImage();
-//		PaperClipBG.setIcon(new ImageIcon(img3));
-//		PaperClipBG.setBounds(442, 422, 32, 37);
-//		frame.getContentPane().add(PaperClipBG);
-		
+
 		TextBox = new JTextArea();
 		TextBox.setBorder(BorderFactory.createLineBorder(Color.black));
 		TextBox.setFont(new Font("Montserrat", Font.PLAIN, 14));

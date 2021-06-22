@@ -35,7 +35,6 @@ public class V_Register {
 	public JCheckBox chckbxNewCheckBox;
 	public JButton btnNewButton, btnNewButton_1;
 	
-
 	public V_Register() {
 		initialize();
 	}
@@ -60,9 +59,7 @@ public class V_Register {
 	void RegisterSuccess() {
 		JOptionPane.showMessageDialog(null,"Registered!");
 	}
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		Dimension ss = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = new Dimension (995, 595);

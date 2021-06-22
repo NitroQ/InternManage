@@ -80,10 +80,9 @@ public class C_DTR extends SQLConnect {
 	             ps.setString(3, "");
 	             ps.setString(4, "");
 	             ps.setString(5, "");
-	             ps.setString(6, "0");
+	             ps.setString(6, "Not Validated");
 	             ps.setString(7, mdt.getStudID());
 	             ps.executeUpdate();
-	             
 	    	 }catch(HeadlessException | SQLException ex){
 	            vdt.Exception(ex);
 	         }
@@ -115,8 +114,6 @@ public class C_DTR extends SQLConnect {
 		         }
 			}
 		}
-		
-		
 	}
 	private String calcTime() {
 		int hour = 0;
@@ -131,10 +128,9 @@ public class C_DTR extends SQLConnect {
 	             --hour;
 	             min += 60;
 	       	 	}
-	       	 	min += Math.abs(Integer.parseInt(timeout[1])-Integer.parseInt(timein[1]));
+	       	 	min += Math.abs(end-start);
 		 }
-		 int total = (hour*60) + min;
-       	 String result = String.valueOf(total);
+       	 String result = String.valueOf((hour*60) + min);
 		 return result;
 	}
 	private void checkTime() {
@@ -179,11 +175,7 @@ public class C_DTR extends SQLConnect {
 			public void run() {
 				for(;;) {
 					try {
-						Calendar cal = Calendar.getInstance();
-						int hour = cal.get(Calendar.HOUR_OF_DAY);
-						int min = cal.get(Calendar.MINUTE);
-						int sec = cal.get(Calendar.SECOND);
-						vdt.setTime(String.valueOf(hour)+ ":"+String.valueOf(min)+ ":"+ String.valueOf(sec));
+						vdt.setTime(getTime());
 						sleep(1000);
 					} catch (InterruptedException e) {
 						vdt.Exception(e);

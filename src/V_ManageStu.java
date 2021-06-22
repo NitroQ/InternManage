@@ -27,15 +27,14 @@ public class V_ManageStu {
 	private JLabel lblNewLabel_3, lblNewLabel_2;
 	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof", "Validate"};
 	 private Object[][] data = {};
-	  private DefaultTableModel model = new DefaultTableModel(data, columns);
-    
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the application.
-	 */
+	  @SuppressWarnings("serial")
+	private DefaultTableModel model = new DefaultTableModel(data, columns) {
+		  @Override
+		    public boolean isCellEditable(int row, int column) {
+		        return false;
+		    }
+	  };
+   
 	public V_ManageStu() {
 		initialize();
 		frame.setVisible(true);
@@ -49,6 +48,9 @@ public class V_ManageStu {
 	}
 	 void refreshPane() {
 		 JOptionPane.showMessageDialog(null, "Up-to-Date");
+		}
+	 void noSelected() {
+		 JOptionPane.showMessageDialog(null, "No Selected Row");
 		}
 	void backbutton(ActionListener back) {
 		backbtn.addActionListener(back);
@@ -65,7 +67,10 @@ public class V_ManageStu {
 	}
 	public String getDate() {
 		int row = table.getSelectedRow();
-		String date = model.getValueAt(row, 0).toString();
+		String date = "";
+		if(row != -1) {
+			date = model.getValueAt(row, 0).toString();
+		}
 		return date;
 	}
 	void resetTable() {

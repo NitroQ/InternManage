@@ -2,6 +2,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class C_ManageStu extends SQLConnect{
 	V_ManageStu mv;
 	M_ManageStu mm;
@@ -35,10 +37,14 @@ public class C_ManageStu extends SQLConnect{
 			mv.validatebutton(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					mm.setValDate(mv.getDate());
-					validate();
-					mv.resetTable();
-					getStudData();
+					if(mv.getDate().equals("")) {
+						mv.noSelected();
+					}else {
+						mm.setValDate(mv.getDate());
+						validate();
+						mv.resetTable();
+						getStudData();
+					}
 				}
 				
 			});
@@ -48,11 +54,10 @@ public class C_ManageStu extends SQLConnect{
 	        	String query1 = "UPDATE `dtr` SET `Validate`= ? WHERE `Date` = ? AND `StudID` = ?";
 	           con = DriverManager.getConnection(connect,"root","");
 	           ps = con.prepareStatement(query1);
-	           ps.setString(1, "1");
+	           ps.setString(1, "Validated");
 	           ps.setString(2, mm.getValDate());
 	           ps.setString(3, mm.getStudID());
 	           ps.executeUpdate();
-	            
 	        } catch (Exception ex) {
 	            mv.Exception(ex);
 	         }

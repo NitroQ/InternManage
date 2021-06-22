@@ -4,15 +4,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-
-
-
 public class C_StudentDash extends SQLConnect{
 
 	V_StudentDash vsd;
 	M_StudentDash msd;
 
-	
 	public  C_StudentDash(V_StudentDash vs,M_StudentDash ms) {
 		this.vsd = vs;
 		this.msd = ms;
@@ -68,9 +64,7 @@ public class C_StudentDash extends SQLConnect{
 	        } catch (Exception ex) {
 	            vsd.Exception(ex);
 	         }
-		
-			 double min = msd.getTime()/60;
-         	vsd.setHours(String.valueOf(Math.round(min)));
+         	vsd.setHours(String.valueOf(Math.round(msd.getTime()/60)));
      	
 	}
 	

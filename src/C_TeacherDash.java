@@ -4,11 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-
 public class C_TeacherDash extends SQLConnect{
 	V_TeacherDash td;
 	M_TeacherDash md;
-	
 	
 	public C_TeacherDash(V_TeacherDash td, M_TeacherDash md) {
 		this.td =td; 
@@ -55,14 +53,10 @@ public class C_TeacherDash extends SQLConnect{
 		try{
 				con = DriverManager.getConnection(connect,"root","");
                    st = con.createStatement();
-                   String query1 = "SELECT * FROM `logincredentials`";
-                   rs = st.executeQuery(query1);
+                   rs = st.executeQuery("SELECT * FROM `logincredentials`");
                while(rs.next()){
             	   if(rs.getString("Type").equals("Student")) {
-                   String Name = rs.getString("Surname") + ", " + rs.getString("First");
-                   String Course = rs.getString("Course/Department");
-                   String Date = rs.getString("Stud_ID");
-                   md.setData(Name, Course, Date);
+                   md.setData(rs.getString("Surname") + ", " + rs.getString("First"), rs.getString("Course/Department"),rs.getString("Stud_ID"));
                    td.addObject(md.getData());
             	   }
                }

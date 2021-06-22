@@ -12,8 +12,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.swing.JOptionPane;
-
 
 public class C_Login extends SQLConnect{
 	V_Login vl;
@@ -77,8 +75,8 @@ public class C_Login extends SQLConnect{
 		        String verification = forgotMail(mail);
 		        String code = vl.forgotCode();
 		        	if(verification.equals(code)) {
-		        		String newpass = JOptionPane.showInputDialog("New Password: ");
-		        		String repnewpass = JOptionPane.showInputDialog("Repeat Password: ");
+		        		String newpass = vl.forgotNewPass();
+		        		String repnewpass = vl.forgotRepPass();
 		        			if(newpass.equals(repnewpass)) {
 		        				ChangePass(mail, newpass);
 		        				vl.forgotChanged();
@@ -161,7 +159,7 @@ public class C_Login extends SQLConnect{
 		     Transport.send(message);  
 		   
 		     } catch (MessagingException e) {
-		    	 e.printStackTrace();
+		    	vl.Exception(e);
 		    	 }  
 	
 		    return rand;
