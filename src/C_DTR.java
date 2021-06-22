@@ -107,8 +107,7 @@ public class C_DTR extends SQLConnect {
 		           ps.setString(4, getDate());
 		           ps.setString(5, mdt.getStudID());
 		           ps.executeUpdate();
-		            
-		           
+		                  
 		        } catch (Exception ex) {
 		            vdt.Exception(ex);
 		         }

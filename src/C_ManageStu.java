@@ -2,8 +2,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-import javax.swing.JOptionPane;
-
 public class C_ManageStu extends SQLConnect{
 	V_ManageStu mv;
 	M_ManageStu mm;
