@@ -2,7 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class C_ManageStu extends SQLConnect{
+public class C_ManageStu extends SQLConnect implements StudentData{
 	V_ManageStu mv;
 	M_ManageStu mm;
 	
@@ -11,7 +11,7 @@ public class C_ManageStu extends SQLConnect{
 			this.mm = mm;
 			
 			mv.setNameStu(mm.getStudID(), mm.getName());
-			getStudData();
+			getStudentData();
 			mv.backbutton(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -28,7 +28,7 @@ public class C_ManageStu extends SQLConnect{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					mv.resetTable();
-					getStudData();
+					getStudentData();
 					mv.refreshPane();
 				}
 			});
@@ -41,7 +41,7 @@ public class C_ManageStu extends SQLConnect{
 						mm.setValDate(mv.getDate());
 						validate();
 						mv.resetTable();
-						getStudData();
+						getStudentData();
 					}
 				}
 				
@@ -60,7 +60,8 @@ public class C_ManageStu extends SQLConnect{
 	            mv.Exception(ex);
 	         }
 		}
-		private void getStudData() {
+		@Override
+		public void getStudentData() {
 			try{
 				  String query1 = "SELECT * FROM `dtr`";
 					con = DriverManager.getConnection(connect,"root","");
@@ -81,6 +82,7 @@ public class C_ManageStu extends SQLConnect{
 	          }catch(SQLException ex){
 	              mv.Exception(ex);
 	          }
+			
 		}
 }
 

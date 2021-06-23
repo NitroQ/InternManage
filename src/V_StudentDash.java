@@ -18,7 +18,7 @@ import java.awt.Dimension;
 public class V_StudentDash extends JFrame {
 
 	JFrame frame;
-	private JButton UpdateInfo, logoutbtn, btnNewButton;
+	private JButton UpdateInfo, logoutbtn, btnNewButton, lblNewLabel_2;
 	private JLabel Greeting, Greeting_1;
 	public V_StudentDash() {
 		initialize();
@@ -26,6 +26,9 @@ public class V_StudentDash extends JFrame {
 
 	void openDTR(MouseAdapter dtr) {
 		UpdateInfo.addMouseListener(dtr);
+	}
+	void openRecord(MouseAdapter rec) {
+		lblNewLabel_2.addMouseListener(rec);
 	}
 	void setwelcome(String name) {
 		Greeting.setText("Welcome, " + name);
@@ -125,16 +128,16 @@ public class V_StudentDash extends JFrame {
 		UpdateInfo.setBounds(518, 193, 358, 80);
 	    frame.getContentPane().add(UpdateInfo);
 		
-	    JButton lblNewLabel_2 = new JButton("");
-		Image Upd = new ImageIcon(this.getClass().getResource("/Company Evaluation.png")).getImage();
-		lblNewLabel_2.setIcon(new ImageIcon(Upd));
-		lblNewLabel_2.setBounds(518, 375, 358, 80);
+	    lblNewLabel_2 = new JButton("");
+	    Image comp = new ImageIcon(this.getClass().getResource("/Group 30.png")).getImage();
+		lblNewLabel_2.setIcon(new ImageIcon(comp));
+		lblNewLabel_2.setBounds(518, 284, 358, 80);
 	    frame.getContentPane().add(lblNewLabel_2);
 		
 	    JButton CompanyEval = new JButton("");
-		Image comp = new ImageIcon(this.getClass().getResource("/Update your Informations.png")).getImage();
-		CompanyEval.setIcon(new ImageIcon(comp));
-		CompanyEval.setBounds(518, 284, 358, 80);
+	    Image Upd = new ImageIcon(this.getClass().getResource("/Company Evaluation.png")).getImage();
+		CompanyEval.setIcon(new ImageIcon(Upd));
+		CompanyEval.setBounds(518, 375, 358, 80);
 	    frame.getContentPane().add(CompanyEval);
 		
 		JLabel Whitebox = new JLabel("");
