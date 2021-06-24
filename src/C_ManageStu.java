@@ -39,20 +39,33 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 						mv.noSelected();
 					}else {
 						mm.setValDate(mv.getDate());
-						validate();
+						validate("Validated");
 						mv.resetTable();
 						getStudentData();
 					}
 				}
-				
 			});
+			mv.invalidbutton(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(mv.getDate().equals("")) {
+						mv.noSelected();
+					}else {
+						mm.setValDate(mv.getDate());
+						validate("Invalid");
+						mv.resetTable();
+						getStudentData();
+					}
+				}
+			});
+			
 		}
-		private void validate() {
+		private void validate(String val) {
 			try {
 	        	String query1 = "UPDATE `dtr` SET `Validate`= ? WHERE `Date` = ? AND `StudID` = ?";
 	           con = DriverManager.getConnection(connect,"root","");
 	           ps = con.prepareStatement(query1);
-	           ps.setString(1, "Validated");
+	           ps.setString(1, val);
 	           ps.setString(2, mm.getValDate());
 	           ps.setString(3, mm.getStudID());
 	           ps.executeUpdate();
