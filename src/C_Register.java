@@ -62,7 +62,6 @@ public class C_Register extends SQLConnect{
              ps.setString(6, Email);
              ps.setString(7, Pass);
              ps.setString(8, type);
-   
                 ps.executeUpdate();
                 
     	 }catch(HeadlessException | SQLException ex){
