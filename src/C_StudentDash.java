@@ -64,15 +64,17 @@ public class C_StudentDash extends SQLConnect implements StudentData{
 	public void getStudentData() {
 	
 		try {
-        	String query1 = "SELECT * FROM `dtr` WHERE `StudID` = ?";
+        	String query1 = "SELECT * FROM `dtr` WHERE `StudID` = ? ";
            con = DriverManager.getConnection(connect,"root","");
            ps = con.prepareStatement(query1);
            ps.setString(1, msd.getStudID());
            rs = ps.executeQuery();
             while(rs.next()){
+            	if(!rs.getString("Validate").equals("Invalid")) {
             		try {
             			msd.setTime(Integer.parseInt(rs.getString("Total").trim()));
             		}catch(NumberFormatException ex) {}
+            	}	
             	}
         } catch (Exception ex) {
             vsd.Exception(ex);

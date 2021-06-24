@@ -162,7 +162,7 @@ public class V_ManageStu {
 	    btnNewButton_1.setForeground(new Color(240,240,240));
 		btnNewButton_1.setBorder(null);
 		btnNewButton_1.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_1.setBounds(633, 155, 89, 23);
+		btnNewButton_1.setBounds(634, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		btnNewButton_3 = new JButton("Invalid");
@@ -170,7 +170,7 @@ public class V_ManageStu {
 	    btnNewButton_3.setForeground(new Color(240,240,240));
 		btnNewButton_3.setBorder(null);
 		btnNewButton_3.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_3.setBounds(737, 156, 89, 23);
+		btnNewButton_3.setBounds(737, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
 		JLabel backbtnvector = new JLabel("");
