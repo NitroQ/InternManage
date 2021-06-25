@@ -51,7 +51,7 @@ public class C_Register extends SQLConnect{
 	private void fetchData(String Fname, String Sname, String CouDept, String Sect, String StudID, String Email, String Pass, String Type) {
 		try{
 			String query = "INSERT INTO `logincredentials`(`First`, `Surname`, `Course/Department`, `Section`, `Stud_ID`, `Email`, `Password`, `Type`) VALUES (?,?,?,?,?,?,?,?)";
-		    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internmanage?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
+		    con = DriverManager.getConnection(connect,"root","");
 		    ps = con.prepareStatement(query);
              String type = "Student";
              ps.setString(1, Fname);
