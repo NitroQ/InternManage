@@ -1,6 +1,7 @@
 
 public class M_ManageStu {
 	 Object[] data;
+	 String[] eval;
 	 String name, StudID, teach, valDate;
 	public M_ManageStu(String name, String StudID, String teach) {
 		this.name = name;
@@ -11,13 +12,19 @@ public class M_ManageStu {
 		 Object[] data = {date, TimeIn, TimeOut, Total, Proof, Validate};
 		 this.data = data;
 	}
+	public void setEval(String Q1, String Q2, String Q3, String Q4) {
+		String[] eval = {Q1, Q2, Q3, Q4};
+		this.eval = eval;
+	}
 	public void setValDate(String date) {
 		this.valDate = date;
 	}
 	public Object[] getData() {
 		return data;
 	}
-
+	public String[] getEval() {
+		return eval;
+	}
 	public String getStudID() {
 		return StudID;
 	}

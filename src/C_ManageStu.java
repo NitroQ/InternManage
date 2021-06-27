@@ -11,7 +11,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 			this.mm = mm;
 			
 			mv.setNameStu(mm.getStudID(), mm.getName());
-			getStudentData();
+			getStudentData(); getEval();
 			mv.backbutton(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -45,6 +45,13 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 					}
 				}
 			});
+			mv.evalbutton(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					mv.evalData(mm.getEval());
+				}
+				
+			});
 			mv.invalidbutton(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -72,6 +79,29 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 	        } catch (Exception ex) {
 	            mv.Exception(ex);
 	         }
+		}
+		private void getEval() {
+			try {
+	        	String query1 = "SELECT * FROM `eval` WHERE `StudID` = ? ";
+	           con = DriverManager.getConnection(connect,"root","");
+	           ps = con.prepareStatement(query1);
+	           ps.setString(1, mm.getStudID());
+	           rs = ps.executeQuery();
+	            while(rs.next()){
+	            	if(rs.getString("StudID").equals(mm.getStudID())) {
+	            		mv.evalButtonAv();
+	            		String Q1 = rs.getString("Q1");
+	            		String Q2 = rs.getString("Q2");
+	            		String Q3 = rs.getString("Q3");
+	            		String Q4 = rs.getString("Q4");
+	            		mm.setEval(Q1, Q2, Q3, Q4);
+	            	}
+	            	}
+	        } catch (Exception ex) {
+	            mv.Exception(ex);
+	         }
+			
+			
 		}
 		@Override
 		public void getStudentData() {

@@ -23,7 +23,7 @@ public class V_ManageStu {
 	JFrame frame;
 	private JTable table;
 	private JScrollPane scrollTable;
-	private JButton backbtn, btnNewButton , btnNewButton_1, btnNewButton_3;
+	private JButton backbtn, btnNewButton , btnNewButton_1, btnNewButton_3, btnNewButton_2;
 	private JLabel lblNewLabel_3, lblNewLabel_2;
 	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof", "Validate"};
 	 private Object[][] data = {};
@@ -63,6 +63,16 @@ public class V_ManageStu {
 	}
 	void validatebutton(ActionListener val) {
 		btnNewButton.addActionListener(val);
+	}
+	void evalbutton(ActionListener am) {
+		btnNewButton_2.addActionListener(am);
+	}
+	void evalButtonAv() {
+		btnNewButton_2.setVisible(true);
+	}
+	void evalData(String[] data) {
+		String eval = "<HTML><B>Evaluation</B> <br> Q1: " + data[0] + "<br> Q2: " + data[1] + "<br> Q3: " + data[2] + "<br> Q4: " + data[3] + "</HTML>";
+		JOptionPane.showMessageDialog(null, eval);
 	}
 	void setNameStu(String StudID, String Name) {
 		lblNewLabel_3.setText(StudID);
@@ -172,6 +182,15 @@ public class V_ManageStu {
 		btnNewButton_3.setBounds(737, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
+		btnNewButton_2 = new JButton("Evaluated");
+		btnNewButton_2.setVisible(false);
+		btnNewButton_2.setBackground(new Color(53, 64, 142));
+	    btnNewButton_2.setForeground(new Color(240,240,240));
+		btnNewButton_2.setBorder(null);
+		btnNewButton_2.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_2.setBounds(634, 120, 89, 23);
+		frame.getContentPane().add(btnNewButton_2);
+		
 		JLabel backbtnvector = new JLabel("");
 		backbtnvector.setBounds(885, 28, 11, 14);
 		Image img2 = new ImageIcon(this.getClass().getResource("/Vector.png")).getImage();
@@ -183,6 +202,8 @@ public class V_ManageStu {
         Background.setIcon(new ImageIcon(img));
         Background.setBounds(0, 0, 989, 566);
 		frame.getContentPane().add(Background);
+		
+		
 		
 		
 		
