@@ -14,6 +14,6 @@ You can Time In and Time Out, your Work Hours are automatically calculated and D
 Your employer can evaluate your performance after you reached the required Hours by your school.
 
 ### Development Tools
-Eclipse with WindowBuilder Plugin
-XAMPP
-MySQL Connector J
+Eclipse with WindowBuilder Plugin </br>
+XAMPP </br>
+MySQL Connector J </br>
