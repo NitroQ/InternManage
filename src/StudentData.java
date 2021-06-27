@@ -1,4 +1,4 @@
 
-public interface StudentData {
+abstract interface StudentData {
 	abstract void getStudentData();
 }
