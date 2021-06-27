@@ -12,7 +12,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -36,8 +35,8 @@ public class V_DTR extends JFrame {
 	void NoDocumentation() {
 		JOptionPane.showMessageDialog(null,"No Documentation!");
 	}
-	void TimeIn(MouseAdapter mouseAdapter) {
-		TimeInBttn.addMouseListener(mouseAdapter);
+	void TimeIn(ActionListener tin) {
+		TimeInBttn.addActionListener(tin);
 	}
 	void TimeOut(ActionListener timeout) {
 		TimeOutBttn.addActionListener(timeout);

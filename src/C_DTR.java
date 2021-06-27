@@ -1,8 +1,6 @@
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,9 +20,9 @@ public class C_DTR extends SQLConnect {
 	
 		updateTime();
 		checkTime();
-		vdt.TimeIn(new MouseAdapter() {
+		vdt.TimeIn(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void actionPerformed(ActionEvent e){
 				TimeIn();
 				checkTime();
 			}

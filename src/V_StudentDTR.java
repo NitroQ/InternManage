@@ -25,7 +25,7 @@ public class V_StudentDTR {
 	private JScrollPane scrollTable;
 	private JButton backbtn, btnNewButton_1;
 	private JLabel lblNewLabel_3;
-	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof"};
+	private  String[] columns = {"Date", "Time In", "Time Out", "Total (In Minutes)", "Proof"};
 	 private Object[][] data = {};
 	  @SuppressWarnings("serial")
 	private DefaultTableModel model = new DefaultTableModel(data, columns) {

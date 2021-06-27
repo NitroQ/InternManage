@@ -18,7 +18,7 @@ import java.awt.Dimension;
 public class V_StudentDash extends JFrame {
 
 	JFrame frame;
-	private JButton UpdateInfo, logoutbtn, btnNewButton, lblNewLabel_2;
+	private JButton UpdateInfo, logoutbtn, btnNewButton, lblNewLabel_2, CompanyEval;
 	private JLabel Greeting, Greeting_1;
 	public V_StudentDash() {
 		initialize();
@@ -29,6 +29,12 @@ public class V_StudentDash extends JFrame {
 	}
 	void openRecord(MouseAdapter rec) {
 		lblNewLabel_2.addMouseListener(rec);
+	}
+	void openEval(ActionListener ev) {
+		CompanyEval.addActionListener(ev);
+	}
+	void setEvalDisabled() {
+		CompanyEval.setEnabled(false);
 	}
 	void setwelcome(String name) {
 		Greeting.setText("Welcome, " + name);
@@ -134,7 +140,7 @@ public class V_StudentDash extends JFrame {
 		lblNewLabel_2.setBounds(518, 284, 358, 80);
 	    frame.getContentPane().add(lblNewLabel_2);
 		
-	    JButton CompanyEval = new JButton("");
+	    CompanyEval = new JButton("");
 	    Image Upd = new ImageIcon(this.getClass().getResource("/Company Evaluation.png")).getImage();
 		CompanyEval.setIcon(new ImageIcon(Upd));
 		CompanyEval.setBounds(518, 375, 358, 80);
