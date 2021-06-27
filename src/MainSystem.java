@@ -6,5 +6,4 @@ public class MainSystem {
 		 @SuppressWarnings("unused")
 		C_Login cr = new C_Login(vr, mr);
 	}
-
 }

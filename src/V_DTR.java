@@ -15,7 +15,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
 @SuppressWarnings("serial")
 public class V_DTR extends JFrame {
 

@@ -11,10 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Enumeration;
-
 import javax.swing.JRadioButton;
-import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
 public class V_Evaluation {
