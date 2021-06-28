@@ -13,7 +13,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class C_Login extends SQLConnect{
+public class C_Login extends SQLConnect implements ClassListData{
 	V_Login vl;
 	M_Login ml;
 	
@@ -42,7 +42,7 @@ public class C_Login extends SQLConnect{
 		});
 		
 	}
-	private void fetchDatabase() {
+	public void getClassList() {
         try {
         	String query1 = "SELECT * FROM `logincredentials` WHERE `Email` = ? AND `Password` = ?";
            con = DriverManager.getConnection(connect,"root","");
@@ -174,7 +174,7 @@ public class C_Login extends SQLConnect{
 			}else {
 				ml.setEmail(vl.getEmail());
 				ml.setPass(vl.getPass());
-				fetchDatabase();
+				getClassList();
 				if(checkInfo()) {
 					if(ml.getType().equals("Teacher")) {
 						V_TeacherDash vtd = new V_TeacherDash();

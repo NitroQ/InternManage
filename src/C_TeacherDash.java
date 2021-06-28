@@ -4,7 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-public class C_TeacherDash extends SQLConnect{
+public class C_TeacherDash extends SQLConnect implements ClassListData{
 	V_TeacherDash td;
 	M_TeacherDash md;
 	
