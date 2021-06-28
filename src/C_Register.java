@@ -53,7 +53,6 @@ public class C_Register extends SQLConnect{
 			String query = "INSERT INTO `logincredentials`(`First`, `Surname`, `Course/Department`, `Section`, `Stud_ID`, `Email`, `Password`, `Type`) VALUES (?,?,?,?,?,?,?,?)";
 		    con = DriverManager.getConnection(connect,"root","");
 		    ps = con.prepareStatement(query);
-             String type = "Student";
              ps.setString(1, Fname);
              ps.setString(2, Sname);
              ps.setString(3, CouDept);
@@ -61,7 +60,7 @@ public class C_Register extends SQLConnect{
              ps.setString(5, StudID);
              ps.setString(6, Email);
              ps.setString(7, Pass);
-             ps.setString(8, type);
+             ps.setString(8, Type);
                 ps.executeUpdate();
                 
     	 }catch(HeadlessException | SQLException ex){
