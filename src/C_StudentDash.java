@@ -81,7 +81,7 @@ public class C_StudentDash extends SQLConnect implements StudentData{
            ps.setString(1, msd.getStudID());
            rs = ps.executeQuery();
             while(rs.next()){
-            	if(!rs.getString("Validate").equals("Invalid")) {
+            	if(!rs.getString("Remarks").equals("Rejected")) {
             		try {
             			msd.setTime(Integer.parseInt(rs.getString("Total").trim()));
             		}catch(NumberFormatException ex) {}

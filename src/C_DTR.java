@@ -70,7 +70,7 @@ public class C_DTR extends SQLConnect {
 	
 	private void TimeIn() {
 			 try{
-				 String query = "INSERT INTO `dtr`(`Date`, `TimeIn`, `TimeOut`, `Total`, `Proof`, `Validate`, `StudID`) VALUES (?,?,?,?,?,?,?)";
+				 String query = "INSERT INTO `dtr`(`Date`, `TimeIn`, `TimeOut`, `Total`, `Proof`, `Remarks`, `StudID`) VALUES (?,?,?,?,?,?,?)";
 			    con = DriverManager.getConnection(connect,"root","");
 			    ps = con.prepareStatement(query);
 	             ps.setString(1, getDate());
@@ -78,7 +78,7 @@ public class C_DTR extends SQLConnect {
 	             ps.setString(3, "");
 	             ps.setString(4, "");
 	             ps.setString(5, "");
-	             ps.setString(6, "Not Validated");
+	             ps.setString(6, "");
 	             ps.setString(7, mdt.getStudID());
 	             ps.executeUpdate();
 	    	 }catch(HeadlessException | SQLException ex){

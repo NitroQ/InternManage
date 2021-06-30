@@ -3,6 +3,7 @@ public class M_ManageStu {
 	 Object[] data;
 	 String[] eval;
 	 String name, StudID, teach, valDate;
+	 int Time= 0;
 	public M_ManageStu(String name, String StudID, String teach) {
 		this.name = name;
 		this.StudID = StudID;
@@ -18,6 +19,9 @@ public class M_ManageStu {
 	}
 	public void setValDate(String date) {
 		this.valDate = date;
+	}
+	public void setTime(int Time) {
+		this.Time += Time;
 	}
 	public Object[] getData() {
 		return data;
@@ -36,6 +40,9 @@ public class M_ManageStu {
 	}
 	public String getValDate() {
 		return valDate;
+	}
+	public int getTime() {
+		return Time;
 	}
 }
 

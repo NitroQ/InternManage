@@ -39,10 +39,17 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 						mv.noSelected();
 					}else {
 						mm.setValDate(mv.getDate());
-						validate("Validated");
+						validate("Approved");
 						mv.resetTable();
 						getStudentData();
 					}
+				}
+			});
+			mv.chktime(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String tc = calc();
+					mv.time(tc);
 				}
 			});
 			mv.evalbutton(new ActionListener() {
@@ -59,7 +66,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 						mv.noSelected();
 					}else {
 						mm.setValDate(mv.getDate());
-						validate("Invalid");
+						validate("Rejected");
 						mv.resetTable();
 						getStudentData();
 					}
@@ -69,7 +76,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 		}
 		private void validate(String val) {
 			try {
-	        	String query1 = "UPDATE `dtr` SET `Validate`= ? WHERE `Date` = ? AND `StudID` = ?";
+	        	String query1 = "UPDATE `dtr` SET `Remarks` = ? WHERE `Date` = ? AND `StudID` = ?";
 	           con = DriverManager.getConnection(connect,"root","");
 	           ps = con.prepareStatement(query1);
 	           ps.setString(1, val);
@@ -103,6 +110,26 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 			
 			
 		}
+		public String calc(){
+				try {
+		        	String query1 = "SELECT * FROM `dtr` WHERE `StudID` = ? ";
+		           con = DriverManager.getConnection(connect,"root","");
+		           ps = con.prepareStatement(query1);
+		           ps.setString(1, mm.getStudID());
+		           rs = ps.executeQuery();
+		            while(rs.next()){
+		            	if(!rs.getString("Remarks").equals("Rejected")) {
+		            		try {
+		            			mm.setTime(Integer.parseInt(rs.getString("Total").trim()));
+		            		}catch(NumberFormatException ex) {}
+		            	}	
+		            	}
+		        } catch (Exception ex) {
+		            mv.Exception(ex);
+		        }   
+				String time = String.valueOf(mm.getTime());
+				return time;
+		}
 		@Override
 		public void getStudentData() {
 			try{
@@ -117,7 +144,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 	            		   String timeout = rs.getString("TimeOut");
 	            		   String total = rs.getString("Total");
 	            		   String proof = rs.getString("Proof");
-	            		   String validate = rs.getString("Validate");
+	            		   String validate = rs.getString("Remarks");
 	            		   mm.setData(date,timein, timeout,total,proof,validate);
 	            		   mv.addObject(mm.getData());
 	            	   }

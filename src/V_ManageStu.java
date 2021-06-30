@@ -23,7 +23,7 @@ public class V_ManageStu {
 	JFrame frame;
 	private JTable table;
 	private JScrollPane scrollTable;
-	private JButton backbtn, btnNewButton , btnNewButton_1, btnNewButton_3, btnNewButton_2;
+	private JButton backbtn, btnNewButton , btnNewButton_1, btnNewButton_3, btnNewButton_2, btnNewButton_7;
 	private JLabel lblNewLabel_3, lblNewLabel_2;
 	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof", "Validate"};
 	 private Object[][] data = {};
@@ -52,6 +52,12 @@ public class V_ManageStu {
 	 void noSelected() {
 		 JOptionPane.showMessageDialog(null, "No Selected Row");
 		}
+	 void time(String time) {
+		 JOptionPane.showMessageDialog(null, "No. of Hours: " + time);
+		}
+	 void chktime(ActionListener timee) {
+		 btnNewButton_7.addActionListener(timee);
+	 }
 	void backbutton(ActionListener back) {
 		backbtn.addActionListener(back);
 	}
@@ -158,7 +164,7 @@ public class V_ManageStu {
 		backbtn.setBounds(901, 24, 57, 23);
 		frame.getContentPane().add(backbtn);
 		
-		btnNewButton = new JButton("Validate");
+		btnNewButton = new JButton("Approve");
 		btnNewButton.setBackground(new Color(53, 64, 142));
 	    btnNewButton.setForeground(new Color(240,240,240));
 		btnNewButton.setBorder(null);
@@ -166,15 +172,23 @@ public class V_ManageStu {
 		btnNewButton.setBounds(838, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
+		btnNewButton_7 = new JButton("Check Time");
+		btnNewButton_7.setBackground(new Color(53, 64, 142));
+	    btnNewButton_7.setForeground(new Color(240,240,240));
+		btnNewButton_7.setBorder(null);
+		btnNewButton_7.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_7.setBounds(638, 156, 89, 23);
+		frame.getContentPane().add(btnNewButton_7);
+		
 		btnNewButton_1 = new JButton("Refresh");
 		btnNewButton_1.setBackground(new Color(53, 64, 142));
 	    btnNewButton_1.setForeground(new Color(240,240,240));
 		btnNewButton_1.setBorder(null);
 		btnNewButton_1.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_1.setBounds(634, 155, 89, 23);
+		btnNewButton_1.setBounds(537, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		btnNewButton_3 = new JButton("Invalid");
+		btnNewButton_3 = new JButton("Rejected");
 		btnNewButton_3.setBackground(new Color(53, 64, 142));
 	    btnNewButton_3.setForeground(new Color(240,240,240));
 		btnNewButton_3.setBorder(null);
@@ -188,7 +202,7 @@ public class V_ManageStu {
 	    btnNewButton_2.setForeground(new Color(240,240,240));
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_2.setBounds(634, 120, 89, 23);
+		btnNewButton_2.setBounds(537, 120, 89, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JLabel backbtnvector = new JLabel("");
@@ -200,7 +214,7 @@ public class V_ManageStu {
 		JLabel Background = new JLabel("");
 		Image img = new ImageIcon(this.getClass().getResource("/Manage Students.png")).getImage();
         Background.setIcon(new ImageIcon(img));
-        Background.setBounds(0, 0, 989, 566);
+        Background.setBounds(10, 0, 989, 566);
 		frame.getContentPane().add(Background);
 		
 		
