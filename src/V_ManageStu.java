@@ -25,7 +25,7 @@ public class V_ManageStu {
 	private JScrollPane scrollTable;
 	private JButton backbtn, btnNewButton , btnNewButton_1, btnNewButton_3, btnNewButton_2, btnNewButton_7;
 	private JLabel lblNewLabel_3, lblNewLabel_2;
-	private  String[] columns = {"Date", "Time In", "Time Out", "Total", "Proof", "Validate"};
+	private  String[] columns = {"Date", "Time In", "Time Out", "Total (In Minutes)", "Proof", "Validate"};
 	 private Object[][] data = {};
 	  @SuppressWarnings("serial")
 	private DefaultTableModel model = new DefaultTableModel(data, columns) {
@@ -52,8 +52,8 @@ public class V_ManageStu {
 	 void noSelected() {
 		 JOptionPane.showMessageDialog(null, "No Selected Row");
 		}
-	 void time(String time) {
-		 JOptionPane.showMessageDialog(null, "No. of Hours: " + time);
+	 void time(String mins, String hours) {
+		 JOptionPane.showMessageDialog(null, "<HTML><B>Total Time</B> <br> In Minutes: " + mins + "<br> In Hours: " + hours + "</HTML>");
 		}
 	 void chktime(ActionListener timee) {
 		 btnNewButton_7.addActionListener(timee);
@@ -177,7 +177,7 @@ public class V_ManageStu {
 	    btnNewButton_7.setForeground(new Color(240,240,240));
 		btnNewButton_7.setBorder(null);
 		btnNewButton_7.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_7.setBounds(638, 156, 89, 23);
+		btnNewButton_7.setBounds(638, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_7);
 		
 		btnNewButton_1 = new JButton("Refresh");
@@ -188,7 +188,7 @@ public class V_ManageStu {
 		btnNewButton_1.setBounds(537, 155, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		btnNewButton_3 = new JButton("Rejected");
+		btnNewButton_3 = new JButton("Reject");
 		btnNewButton_3.setBackground(new Color(53, 64, 142));
 	    btnNewButton_3.setForeground(new Color(240,240,240));
 		btnNewButton_3.setBorder(null);
@@ -217,13 +217,6 @@ public class V_ManageStu {
         Background.setBounds(10, 0, 989, 566);
 		frame.getContentPane().add(Background);
 		
-		
-		
-		
-		
-	
-		
-	
 		
 		
 

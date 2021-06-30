@@ -192,7 +192,6 @@ public class C_Login extends SQLConnect implements ClassListData{
 				}else {
 					vl.InvalidRep();
 				}
-				
 			}
 			
 		}

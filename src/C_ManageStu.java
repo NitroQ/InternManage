@@ -48,8 +48,9 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 			mv.chktime(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					String tc = calc();
-					mv.time(tc);
+					int time = calc();					
+					mv.time(String.valueOf(time),String.valueOf(time/60));
+					mm.resetTime();
 				}
 			});
 			mv.evalbutton(new ActionListener() {
@@ -110,7 +111,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 			
 			
 		}
-		public String calc(){
+		public int calc(){
 				try {
 		        	String query1 = "SELECT * FROM `dtr` WHERE `StudID` = ? ";
 		           con = DriverManager.getConnection(connect,"root","");
@@ -127,8 +128,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 		        } catch (Exception ex) {
 		            mv.Exception(ex);
 		        }   
-				String time = String.valueOf(mm.getTime()/60);
-				return time;
+				return mm.getTime();
 		}
 		@Override
 		public void getStudentData() {

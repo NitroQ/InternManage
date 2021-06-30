@@ -20,6 +20,9 @@ public class M_ManageStu {
 	public void setValDate(String date) {
 		this.valDate = date;
 	}
+	public void resetTime() {
+		Time = 0;
+	}
 	public void setTime(int Time) {
 		this.Time += Time;
 	}

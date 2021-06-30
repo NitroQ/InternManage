@@ -168,4 +168,7 @@ public class V_StudentDash extends JFrame {
 	 void refreshPane() {
 		 JOptionPane.showMessageDialog(null, "Up-to-Date");
 		}
+	 void timePane(String time) {
+		 JOptionPane.showMessageDialog(null, time);
+		}
 }
