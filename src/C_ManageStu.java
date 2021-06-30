@@ -127,7 +127,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 		        } catch (Exception ex) {
 		            mv.Exception(ex);
 		        }   
-				String time = String.valueOf(mm.getTime());
+				String time = String.valueOf(mm.getTime()/60);
 				return time;
 		}
 		@Override
