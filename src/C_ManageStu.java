@@ -118,7 +118,7 @@ public class C_ManageStu extends SQLConnect implements StudentData{
 		           ps.setString(1, mm.getStudID());
 		           rs = ps.executeQuery();
 		            while(rs.next()){
-		            	if(!rs.getString("Remarks").equals("Rejected")) {
+		            	if(rs.getString("Remarks").equals("Approved")) {
 		            		try {
 		            			mm.setTime(Integer.parseInt(rs.getString("Total").trim()));
 		            		}catch(NumberFormatException ex) {}
